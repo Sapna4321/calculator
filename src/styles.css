@@ -1,0 +1,72 @@
+@keyframes pulse {
+    0% {
+        background-color: #125966;
+    }
+
+    50% {
+        background-color: hsl(187, 77%, 35%);
+    }
+ 
+    100% {
+        background-color: hsl(73, 84%, 63%);
+    }
+
+}
+
+
+body {
+    animation: pulse 2s infinite;
+}
+
+
+.container {
+    display: grid;
+    justify-content: center;
+    /* add four column with 6rem size */
+    grid-template-columns: repeat(4, 6rem); 
+    /* first row min size will be 7rem and can be increased add 5 rows with size 6rem */
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.span {
+    grid-column: span 2;
+}
+
+.display {
+    /* display grid will occupy space from first column to last column */
+    grid-column: 1/ -1;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    word-wrap: break-word; 
+    word-break: break-all; 
+    padding: .75rem;
+}
+
+.display .prevOperand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 2.5 rem;
+    font-weight: bold;
+}
+
+.display .currOperand {
+    color: white;
+    font-size: 4.5 rem;
+    font-weight: bold;
+}
+
+.container > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    text-align: center;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.container > button:hover,
+.container > button:focus {
+    background-color: rgba(255, 255, 255, .9);
+}
